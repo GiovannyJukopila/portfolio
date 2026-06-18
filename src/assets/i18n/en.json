@@ -1,0 +1,79 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "SKILLS": "Skills",
+    "PROJECTS": "Projects",
+    "EXPERIENCE": "Experience",
+    "CONTACT": "Contact"
+  },
+  "HERO": {
+    "GREETING": "Hi, I'm",
+    "NAME": "Giovanny Jukopila",
+    "I_AM_A": "I'm a",
+    "ROLE": "Full-Stack Developer",
+    "DESCRIPTION": "Full Stack Software Engineer with 5+ years shipping web & mobile products end to end. Tech-agnostic by mindset, I pair solid engineering fundamentals with AI-assisted workflows (Claude, agents) to learn fast and deliver with speed, quality and security, whatever the stack demands.",
+    "AVAILABILITY": "Available for new opportunities",
+    "LOCATION": "Birkirkara, Malta",
+    "YEARS": "5+ years experience",
+    "AI": "AI-augmented workflows",
+    "LANGS": "EN (C1) · ES (Native)",
+    "SCROLL": "Scroll",
+    "APPS_LABEL": "Featured app, live on",
+    "VIEW_WORK": "View Projects",
+    "CONTACT_ME": "Contact Me"
+  },
+  "ABOUT": {
+    "EYEBROW": "Get to know me",
+    "TITLE": "About Me",
+    "STORY": "I'm a Full Stack Software Engineer based in Malta, originally from Colombia. I design, build, deploy and maintain scalable web and mobile applications across frontend, backend, databases and cloud.",
+    "STORY2": "I'm tech-agnostic and a fast learner: I don't limit myself to the tools I already know. With modern AI-assisted workflows (Claude, agents) I ramp up on new stacks quickly and ship with speed, effectiveness and security, without compromising engineering quality.",
+    "STAT_YEARS": "Years of experience",
+    "STAT_PROJECTS": "Live projects",
+    "STAT_APPS": "Mobile apps shipped",
+    "STAT_COMPANIES": "Companies worked with",
+    "LANGUAGES": "Languages",
+    "SOFT_SKILLS_TITLE": "Soft Skills",
+    "EDUCATION": "Education & Certifications"
+  },
+  "SKILLS": {
+    "EYEBROW": "What I work with",
+    "TITLE": "Technical Skills",
+    "SUBTITLE": "A pragmatic, full-stack toolset spanning web, mobile and cloud."
+  },
+  "PROJECTS": {
+    "EYEBROW": "Selected work",
+    "TITLE": "Featured Projects",
+    "SUBTITLE": "Real products I've built and shipped, from SaaS platforms to mobile apps and corporate sites.",
+    "ALL": "All",
+    "VIEW_CODE": "View Code",
+    "LIVE_DEMO": "Live Demo"
+  },
+  "EXPERIENCE": {
+    "EYEBROW": "Career path",
+    "TITLE": "Work Experience",
+    "SUBTITLE": "5+ years delivering software across startups and agencies in Europe and Latin America."
+  },
+  "CONTACT": {
+    "EYEBROW": "Let's talk",
+    "TITLE": "Get In Touch",
+    "SUBTITLE": "Have a project or a role in mind? I'd love to hear about it.",
+    "CONNECT": "Let's Connect",
+    "CONNECT_TEXT": "I'm always open to discussing new projects, ideas or opportunities to be part of your vision.",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "MESSAGE": "Message",
+    "SEND": "Send Message",
+    "NAME_PH": "Your name",
+    "EMAIL_PH": "your@email.com",
+    "MESSAGE_PH": "Tell me about your project...",
+    "ERR_NAME": "Name is required",
+    "ERR_EMAIL": "A valid email is required",
+    "ERR_MESSAGE": "Message is required",
+    "SENT": "Opening your email client. Thanks for reaching out!"
+  },
+  "COMMON": {
+    "DOWNLOAD_CV": "Download CV",
+    "WHATSAPP_CTA": "Chat with me on WhatsApp"
+  }
+}

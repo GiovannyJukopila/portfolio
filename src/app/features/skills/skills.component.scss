@@ -1,0 +1,98 @@
+@use 'mixins' as *;
+
+.skills-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+
+    @include respond-to('md') { grid-template-columns: repeat(2, 1fr); }
+    @include respond-to('xl') { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .category-card {
+    @include card-surface;
+    padding: 1.75rem 1.5rem;
+    border-radius: 18px;
+    transition: transform 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+
+    &:hover {
+      transform: translateY(-6px);
+      border-color: rgba(6, 251, 169, 0.3);
+    }
+
+    .category-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+      .cat-icon {
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: rgba(6, 251, 169, 0.1);
+        border: 1px solid rgba(6, 251, 169, 0.22);
+        color: var(--color-primary);
+        font-size: 1.3rem;
+      }
+
+      .category-title { font-size: 1.05rem; color: #fff; margin: 0; }
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+    }
+
+    .skill-item {
+      .skill-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+
+        .skill-name {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.9rem;
+          color: rgba(255, 255, 255, 0.88);
+
+          i { color: var(--color-primary); font-size: 1.05rem; }
+        }
+
+        .skill-level {
+          font-family: 'Roboto Mono', monospace;
+          font-size: 0.78rem;
+          color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 4px;
+        overflow: hidden;
+
+        .progress {
+          height: 100%;
+          width: 0;
+          border-radius: 4px;
+          background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+          box-shadow: 0 0 10px rgba(6, 251, 169, 0.4);
+        }
+      }
+    }
+  }
+}

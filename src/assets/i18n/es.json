@@ -1,0 +1,79 @@
+{
+  "NAV": {
+    "HOME": "Inicio",
+    "ABOUT": "Sobre Mí",
+    "SKILLS": "Habilidades",
+    "PROJECTS": "Proyectos",
+    "EXPERIENCE": "Experiencia",
+    "CONTACT": "Contacto"
+  },
+  "HERO": {
+    "GREETING": "Hola, soy",
+    "NAME": "Giovanny Jukopila",
+    "I_AM_A": "Soy",
+    "ROLE": "Desarrollador Full-Stack",
+    "DESCRIPTION": "Ingeniero de Software Full Stack con más de 5 años entregando productos web y móviles de principio a fin. Soy agnóstico a la tecnología: combino sólidos fundamentos de ingeniería con flujos asistidos por IA (Claude, agents) para aprender rápido y entregar con rapidez, calidad y seguridad, sin importar el stack.",
+    "AVAILABILITY": "Disponible para nuevas oportunidades",
+    "LOCATION": "Birkirkara, Malta",
+    "YEARS": "+5 años de experiencia",
+    "AI": "Flujos potenciados con IA",
+    "LANGS": "ES (Nativo) · EN (C1)",
+    "SCROLL": "Baja",
+    "APPS_LABEL": "App destacada, disponible en",
+    "VIEW_WORK": "Ver Proyectos",
+    "CONTACT_ME": "Contáctame"
+  },
+  "ABOUT": {
+    "EYEBROW": "Conóceme",
+    "TITLE": "Sobre Mí",
+    "STORY": "Soy Ingeniero de Software Full Stack radicado en Malta, originario de Colombia. Diseño, construyo, despliego y mantengo aplicaciones web y móviles escalables abarcando frontend, backend, bases de datos y la nube.",
+    "STORY2": "Soy agnóstico a la tecnología y aprendo rápido: no me limito a las herramientas que ya conozco. Con flujos de trabajo asistidos por IA (Claude, agents) me pongo al día en nuevos stacks rápidamente y entrego con rapidez, efectividad y seguridad, sin sacrificar la calidad de ingeniería.",
+    "STAT_YEARS": "Años de experiencia",
+    "STAT_PROJECTS": "Proyectos en vivo",
+    "STAT_APPS": "Apps móviles publicadas",
+    "STAT_COMPANIES": "Empresas con las que trabajé",
+    "LANGUAGES": "Idiomas",
+    "SOFT_SKILLS_TITLE": "Habilidades Blandas",
+    "EDUCATION": "Educación y Certificaciones"
+  },
+  "SKILLS": {
+    "EYEBROW": "Con lo que trabajo",
+    "TITLE": "Habilidades Técnicas",
+    "SUBTITLE": "Un conjunto de herramientas full-stack y pragmático que abarca web, móvil y nube."
+  },
+  "PROJECTS": {
+    "EYEBROW": "Trabajos seleccionados",
+    "TITLE": "Proyectos Destacados",
+    "SUBTITLE": "Productos reales que he construido y publicado, desde plataformas SaaS hasta apps móviles y sitios corporativos.",
+    "ALL": "Todos",
+    "VIEW_CODE": "Ver Código",
+    "LIVE_DEMO": "Ver en Vivo"
+  },
+  "EXPERIENCE": {
+    "EYEBROW": "Trayectoria",
+    "TITLE": "Experiencia Laboral",
+    "SUBTITLE": "+5 años entregando software en startups y agencias de Europa y Latinoamérica."
+  },
+  "CONTACT": {
+    "EYEBROW": "Hablemos",
+    "TITLE": "Contáctame",
+    "SUBTITLE": "¿Tienes un proyecto o una vacante en mente? Me encantaría saberlo.",
+    "CONNECT": "Conectemos",
+    "CONNECT_TEXT": "Siempre estoy abierto a hablar sobre nuevos proyectos, ideas u oportunidades para ser parte de tu visión.",
+    "NAME": "Nombre",
+    "EMAIL": "Correo",
+    "MESSAGE": "Mensaje",
+    "SEND": "Enviar Mensaje",
+    "NAME_PH": "Tu nombre",
+    "EMAIL_PH": "tu@correo.com",
+    "MESSAGE_PH": "Cuéntame sobre tu proyecto...",
+    "ERR_NAME": "El nombre es obligatorio",
+    "ERR_EMAIL": "Se requiere un correo válido",
+    "ERR_MESSAGE": "El mensaje es obligatorio",
+    "SENT": "Abriendo tu cliente de correo. ¡Gracias por escribir!"
+  },
+  "COMMON": {
+    "DOWNLOAD_CV": "Descargar CV",
+    "WHATSAPP_CTA": "Escríbeme por WhatsApp"
+  }
+}

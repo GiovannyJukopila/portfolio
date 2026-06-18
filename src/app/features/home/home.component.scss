@@ -1,0 +1,435 @@
+@use "mixins" as *;
+
+.hero-section {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 120px 0 80px;
+
+  .particles-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 3rem;
+
+  @include respond-to("lg") {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+  }
+}
+
+// ── Content ─────────────────────────────────────
+.hero-content {
+  max-width: 680px;
+
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-primary);
+    background: rgba(6, 251, 169, 0.08);
+    border: 1px solid rgba(6, 251, 169, 0.25);
+    padding: 0.4rem 0.9rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 0 rgba(6, 251, 169, 0.6);
+      animation: pulse 2s infinite;
+    }
+  }
+
+  .greeting {
+    display: block;
+    font-family: "Roboto Mono", monospace;
+    color: var(--color-primary);
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .name {
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    @include gradient-text(
+      linear-gradient(120deg, #ffffff 0%, #cfe9df 55%, #06fba9 130%)
+    );
+  }
+
+  .role {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+    min-height: 2.4rem;
+
+    .role-prefix {
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 400;
+    }
+
+    .role-rotator {
+      color: var(--color-primary);
+      position: relative;
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 2px;
+        height: 1.05em;
+        background: var(--color-primary);
+        margin-left: 4px;
+        transform: translateY(2px);
+        animation: blink 1.05s steps(2) infinite;
+      }
+    }
+  }
+
+  .description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.62);
+    max-width: 540px;
+    margin-bottom: 1.75rem;
+    line-height: 1.8;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-bottom: 2.25rem;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.6);
+
+      i {
+        color: var(--color-primary);
+        font-size: 1.1rem;
+      }
+
+      &.ai-meta {
+        color: var(--color-primary);
+        font-weight: 600;
+        background: rgba(6, 251, 169, 0.08);
+        border: 1px solid rgba(6, 251, 169, 0.22);
+        padding: 0.15rem 0.65rem;
+        border-radius: 9999px;
+      }
+    }
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      .btn-primary,
+      .btn-secondary,
+      .btn-glass {
+        width: 100%;
+      }
+    }
+  }
+
+  .hero-socials {
+    display: flex;
+    gap: 1rem;
+
+    a {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.3s var(--ease-out);
+
+      &:hover {
+        color: #04110c;
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 22px rgba(6, 251, 169, 0.3);
+      }
+    }
+  }
+}
+
+// ── Visual / photo ──────────────────────────────
+.hero-visual {
+  display: flex;
+  justify-content: center;
+
+  @include respond-to("lg") {
+    transform: translateY(-90px);
+  }
+
+  .photo-wrap {
+    position: relative;
+    width: clamp(240px, 32vw, 360px);
+    aspect-ratio: 1;
+  }
+
+  .glow-ring {
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    background: conic-gradient(
+      from 0deg,
+      var(--color-primary),
+      var(--color-secondary),
+      var(--color-accent),
+      var(--color-primary)
+    );
+    filter: blur(22px);
+    opacity: 0.55;
+    animation: spin 14s linear infinite;
+  }
+
+  .photo {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  .floating-badge {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    padding: 0.5rem 0.85rem;
+    border-radius: 12px;
+    @include card-surface;
+    animation: float 5s ease-in-out infinite;
+
+    i {
+      color: var(--color-primary);
+      font-size: 1rem;
+    }
+
+    &.badge-1 {
+      top: 6%;
+      left: -8%;
+      animation-delay: 0s;
+    }
+    &.badge-2 {
+      bottom: 14%;
+      left: -12%;
+      animation-delay: 1.2s;
+    }
+    &.badge-3 {
+      top: 34%;
+      right: -10%;
+      animation-delay: 2.1s;
+    }
+  }
+}
+
+// ── Scroll indicator ────────────────────────────
+.scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  .mouse {
+    width: 24px;
+    height: 38px;
+    border: 2px solid currentColor;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    padding-top: 6px;
+
+    .wheel {
+      width: 3px;
+      height: 7px;
+      background: currentColor;
+      border-radius: 3px;
+      animation: wheel 1.6s ease-in-out infinite;
+    }
+  }
+
+  .scroll-text {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 992px) {
+    display: none;
+  }
+}
+
+// ── Buttons ─────────────────────────────────────
+%btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.9rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  transition: all 0.3s var(--ease-out);
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+  will-change: transform;
+}
+
+.btn-primary {
+  @extend %btn-base;
+  background: var(--color-primary);
+  color: #04110c;
+  box-shadow: 0 8px 24px rgba(6, 251, 169, 0.28);
+
+  i {
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  &:hover {
+    box-shadow: 0 12px 30px rgba(6, 251, 169, 0.45);
+    transform: translateY(-3px);
+    i {
+      transform: translateX(4px);
+    }
+  }
+}
+
+.btn-secondary {
+  @extend %btn-base;
+  background: transparent;
+  border: 1px solid rgba(6, 251, 169, 0.5);
+  color: var(--color-primary);
+
+  &:hover {
+    background: rgba(6, 251, 169, 0.1);
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+}
+
+.btn-glass {
+  @extend %btn-base;
+  @include card-surface;
+  color: rgba(255, 255, 255, 0.82);
+
+  i {
+    font-size: 1.15rem;
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-3px);
+  }
+}
+
+// ── Keyframes ───────────────────────────────────
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 251, 169, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(6, 251, 169, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(6, 251, 169, 0);
+  }
+}
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+@keyframes wheel {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}

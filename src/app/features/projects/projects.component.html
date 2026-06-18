@@ -1,0 +1,58 @@
+<section class="section projects-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'PROJECTS.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'PROJECTS.TITLE' | translate }}</h2>
+      <p class="section-sub">{{ 'PROJECTS.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="filter-group">
+      <button
+        class="filter-btn"
+        *ngFor="let cat of categories"
+        [class.active]="filter() === cat"
+        (click)="setFilter(cat)">
+        {{ cat === 'All' ? ('PROJECTS.ALL' | translate) : cat }}
+      </button>
+    </div>
+
+    <div class="projects-grid">
+      <article class="project-card" *ngFor="let project of filteredProjects()" [class.featured]="project.featured">
+        <div class="card-image">
+          <img [src]="project.image" [alt]="project.title" loading="lazy">
+          <div class="image-overlay">
+            <a *ngIf="project.link" [href]="project.link" target="_blank" rel="noopener" class="overlay-btn">
+              <i class="ph-bold ph-arrow-up-right"></i> {{ 'PROJECTS.LIVE_DEMO' | translate }}
+            </a>
+          </div>
+          <span class="category-tag">{{ project.category }}</span>
+        </div>
+
+        <div class="card-content">
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+
+          <div class="tech-stack">
+            <span *ngFor="let t of project.tech">{{ t }}</span>
+          </div>
+
+          <div class="card-actions">
+            <app-store-badges *ngIf="project.stores?.length"
+              [ios]="storeUrl(project, 'ios')"
+              [android]="storeUrl(project, 'android')">
+            </app-store-badges>
+
+            <div class="link-actions">
+              <a *ngIf="project.github" [href]="project.github" target="_blank" rel="noopener" class="btn-icon" title="View Code">
+                <i class="ph ph-github-logo"></i>
+              </a>
+              <a *ngIf="project.link" [href]="project.link" target="_blank" rel="noopener" class="btn-icon" title="Live Demo">
+                <i class="ph ph-arrow-square-out"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

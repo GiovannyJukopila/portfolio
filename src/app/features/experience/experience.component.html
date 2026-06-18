@@ -1,0 +1,20 @@
+<section class="section experience-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'EXPERIENCE.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'EXPERIENCE.TITLE' | translate }}</h2>
+      <p class="section-sub">{{ 'EXPERIENCE.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="timeline-wrapper">
+      <app-timeline [events]="experienceEvents"></app-timeline>
+    </div>
+
+    <div class="cv-download">
+      <a href="assets/cv/GiovannyJukopilaCv.pdf" download="GiovannyJukopilaCv.pdf" target="_blank" class="btn">
+        <i class="ph ph-download-simple"></i>
+        {{ 'COMMON.DOWNLOAD_CV' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="section skills-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'SKILLS.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'SKILLS.TITLE' | translate }}</h2>
+      <p class="section-sub">{{ 'SKILLS.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="category-card" *ngFor="let category of skillCategories">
+        <div class="category-head">
+          <span class="cat-icon"><i class="ph" [ngClass]="category.icon"></i></span>
+          <h3 class="category-title">{{ category.name }}</h3>
+        </div>
+
+        <div class="skills-list">
+          <div class="skill-item" *ngFor="let skill of category.skills">
+            <div class="skill-top">
+              <span class="skill-name"><i class="ph" [ngClass]="skill.icon"></i> {{ skill.name }}</span>
+              <span class="skill-level">{{ skill.level }}%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" #bar [attr.data-level]="skill.level"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

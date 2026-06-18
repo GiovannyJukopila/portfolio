@@ -1,0 +1,187 @@
+@use 'mixins' as *;
+
+.projects-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  .filter-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
+
+    .filter-btn {
+      padding: 0.5rem 1.4rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s var(--ease-out);
+      background: transparent;
+
+      &:hover { color: #fff; border-color: rgba(6, 251, 169, 0.4); }
+
+      &.active {
+        background: var(--color-primary);
+        color: #04110c;
+        border-color: var(--color-primary);
+        box-shadow: 0 6px 18px rgba(6, 251, 169, 0.28);
+      }
+    }
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+
+    @include respond-to('md') { grid-template-columns: repeat(2, 1fr); }
+    @include respond-to('xl') { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .project-card {
+    @include card-surface;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.5);
+      border-color: rgba(6, 251, 169, 0.35);
+
+      .card-image img { transform: scale(1.07); }
+      .image-overlay { opacity: 1; }
+    }
+
+    // Featured project spans two columns on wide screens
+    &.featured {
+      @include respond-to('xl') { grid-column: span 2; }
+
+      .card-image { aspect-ratio: 16 / 8; }
+    }
+
+    .card-image {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #0a0a16;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        transition: transform 0.6s var(--ease-out);
+      }
+
+      .image-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(5, 5, 9, 0.1), rgba(5, 5, 9, 0.75));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.4s var(--ease-out);
+
+        .overlay-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 0.7rem 1.4rem;
+          background: var(--color-primary);
+          color: #04110c;
+          font-weight: 600;
+          font-size: 0.9rem;
+          border-radius: 10px;
+          transform: translateY(8px);
+          transition: transform 0.4s var(--ease-out);
+        }
+      }
+
+      &:hover .overlay-btn { transform: translateY(0); }
+
+      .category-tag {
+        position: absolute;
+        top: 0.9rem;
+        left: 0.9rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        background: rgba(4, 4, 7, 0.7);
+        backdrop-filter: blur(6px);
+        padding: 0.3rem 0.7rem;
+        border-radius: 8px;
+        border: 1px solid rgba(6, 251, 169, 0.25);
+      }
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      .project-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 0.6rem;
+      }
+
+      .project-desc {
+        font-size: 0.93rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1.25rem;
+        line-height: 1.65;
+        flex: 1;
+      }
+
+      .tech-stack {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-bottom: 1.25rem;
+
+        span {
+          font-size: 0.75rem;
+          font-weight: 500;
+          padding: 0.25rem 0.65rem;
+          background: rgba(6, 251, 169, 0.08);
+          border: 1px solid rgba(6, 251, 169, 0.18);
+          border-radius: 6px;
+          color: rgba(6, 251, 169, 0.95);
+        }
+      }
+
+      .card-actions {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .link-actions {
+        display: flex;
+        gap: 0.85rem;
+        margin-left: auto;
+
+        .btn-icon {
+          font-size: 1.4rem;
+          color: rgba(255, 255, 255, 0.6);
+          transition: all 0.3s var(--ease-out);
+
+          &:hover { color: var(--color-primary); transform: translateY(-2px); }
+        }
+      }
+    }
+  }
+}

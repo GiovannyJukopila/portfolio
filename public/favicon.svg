@@ -1,0 +1,23 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Giovanny Jukopila">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0a0a16"/>
+      <stop offset="1" stop-color="#050509"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="22" y1="18" x2="78" y2="82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4dffc8"/>
+      <stop offset="0.55" stop-color="#06fba9"/>
+      <stop offset="1" stop-color="#00b4d8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- tile -->
+  <rect x="3" y="3" width="94" height="94" rx="24" fill="url(#bg)"/>
+  <rect x="3.5" y="3.5" width="93" height="93" rx="23.5" fill="none" stroke="#06fba9" stroke-opacity="0.22" stroke-width="1"/>
+
+  <!-- G monogram -->
+  <g fill="none" stroke="url(#mark)" stroke-width="12" stroke-linecap="round">
+    <path d="M 72.9 35.7 A 27 27 0 1 0 75.7 58.3"/>
+    <path d="M 75.7 58.3 L 51 58.3"/>
+  </g>
+</svg>

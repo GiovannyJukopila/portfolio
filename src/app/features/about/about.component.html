@@ -1,0 +1,46 @@
+<section class="section about-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'ABOUT.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'ABOUT.TITLE' | translate }}</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="story-col" #storyCol>
+        <div class="card story-card">
+          <p class="story-text">{{ 'ABOUT.STORY' | translate }}</p>
+          <p class="story-text">{{ 'ABOUT.STORY2' | translate }}</p>
+
+          <div class="stats-row">
+            <div class="stat" *ngFor="let s of stats">
+              <span class="stat-value">{{ s.value }}</span>
+              <span class="stat-label">{{ s.labelKey | translate }}</span>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <h3>{{ 'ABOUT.LANGUAGES' | translate }}</h3>
+            <div class="lang-list">
+              <span class="lang" *ngFor="let l of languages">
+                <i class="ph-fill ph-globe-hemisphere-west"></i>
+                {{ l.name }} <em>· {{ l.level }}</em>
+              </span>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <h3>{{ 'ABOUT.SOFT_SKILLS_TITLE' | translate }}</h3>
+            <div class="skills-chips">
+              <span class="chip" *ngFor="let skill of softSkills">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-col">
+        <h3 class="col-title">{{ 'ABOUT.EDUCATION' | translate }}</h3>
+        <app-timeline [events]="educationEvents"></app-timeline>
+      </div>
+    </div>
+  </div>
+</section>

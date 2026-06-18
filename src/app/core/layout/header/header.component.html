@@ -1,0 +1,44 @@
+<header [class.scrolled]="isScrolled()">
+  <div class="container header-content">
+    <a (click)="scrollToSection('home')" class="logo">
+      <span class="bracket">&lt;</span>
+      gioDev
+      <span class="bracket">/&gt;</span>
+    </a>
+
+    <nav class="desktop-nav">
+      <ul>
+        <li *ngFor="let item of navItems">
+          <a (click)="scrollToSection(item.link)"
+             [class.active]="activeSection() === item.link"
+             class="nav-link">
+            {{ item.label | translate }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <app-language-switcher></app-language-switcher>
+
+      <button class="mobile-toggle" (click)="toggleMobileMenu()" [class.open]="isMobileMenuOpen()" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="scroll-progress" [style.width.%]="scrollProgress()"></div>
+
+  <nav class="mobile-nav" [class.open]="isMobileMenuOpen()">
+    <ul>
+      <li *ngFor="let item of navItems">
+        <a (click)="scrollToSection(item.link)"
+           [class.active]="activeSection() === item.link">
+          {{ item.label | translate }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

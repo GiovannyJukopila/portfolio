@@ -1,0 +1,84 @@
+<section class="hero-section" id="home">
+  <ngx-particles [id]="'tsparticles'" [options]="particlesOptions" class="particles-bg"></ngx-particles>
+
+  <div class="container hero-container">
+    <div class="hero-grid">
+      <div class="hero-content" #heroContent>
+        <span class="availability">
+          <span class="dot"></span>
+          {{ 'HERO.AVAILABILITY' | translate }}
+        </span>
+
+        <span class="greeting">{{ 'HERO.GREETING' | translate }}</span>
+        <h1 class="name">{{ 'HERO.NAME' | translate }}</h1>
+
+        <h2 class="role">
+          <span class="role-rotator" #roleText>{{ roles[0] }}</span>
+        </h2>
+
+        <p class="description">{{ 'HERO.DESCRIPTION' | translate }}</p>
+
+        <ul class="hero-meta">
+          <li><i class="ph ph-map-pin"></i> {{ 'HERO.LOCATION' | translate }}</li>
+          <li><i class="ph ph-briefcase"></i> {{ 'HERO.YEARS' | translate }}</li>
+          <li class="ai-meta"><i class="ph-fill ph-sparkle"></i> {{ 'HERO.AI' | translate }}</li>
+          <li><i class="ph ph-translate"></i> {{ 'HERO.LANGS' | translate }}</li>
+        </ul>
+
+        <div class="cta-buttons">
+          <a (click)="scrollToSection('projects')" class="btn-primary magnetic">
+            {{ 'HERO.VIEW_WORK' | translate }}
+            <i class="ph-bold ph-arrow-right"></i>
+          </a>
+          <a (click)="scrollToSection('contact')" class="btn-secondary magnetic">{{ 'HERO.CONTACT_ME' | translate }}</a>
+          <a href="assets/cv/GiovannyJukopilaCv.pdf" download="GiovannyJukopilaCv.pdf" target="_blank" class="btn-glass">
+            <i class="ph ph-download-simple"></i>
+            {{ 'COMMON.DOWNLOAD_CV' | translate }}
+          </a>
+        </div>
+
+        <div class="hero-socials">
+          <a [href]="social.github" target="_blank" rel="noopener" aria-label="GitHub"><i class="ph ph-github-logo"></i></a>
+          <a [href]="social.linkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+          <a [href]="social.whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+          <a [href]="'mailto:' + social.email" aria-label="Email"><i class="ph ph-envelope-simple"></i></a>
+        </div>
+      </div>
+
+      <div class="hero-visual" #heroVisual>
+        <div class="photo-wrap">
+          <div class="glow-ring"></div>
+          <img src="assets/pictures/profilePhoto.jpeg" alt="Giovanny Jukopila" class="photo">
+          <div class="floating-badge badge-1"><i class="ph-fill ph-code"></i> Angular</div>
+          <div class="floating-badge badge-2"><i class="ph-fill ph-device-mobile"></i> Flutter</div>
+          <div class="floating-badge badge-3"><i class="ph-fill ph-cloud"></i> AWS</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-indicator" (click)="scrollToSection('about')" aria-label="Scroll down">
+    <span class="mouse"><span class="wheel"></span></span>
+    <span class="scroll-text">{{ 'HERO.SCROLL' | translate }}</span>
+  </a>
+</section>
+
+<section id="about">
+  <app-about></app-about>
+</section>
+
+<section id="skills">
+  <app-skills></app-skills>
+</section>
+
+<section id="projects">
+  <app-projects></app-projects>
+</section>
+
+<section id="experience">
+  <app-experience></app-experience>
+</section>
+
+<section id="contact">
+  <app-contact></app-contact>
+</section>
