@@ -15,7 +15,7 @@ No database: Google Calendar itself is the source of truth for taken slots
 | GET    | `/api/slots`   | `?date=YYYY-MM-DD` → `{ takenSlots: string[] }`    |
 | POST   | `/api/booking` | `{ date, slot, name, email, company? }` → `{ meetLink }` |
 
-## Deploy to Vercel (free Hobby plan — $0)
+## Deploy to Vercel (free Hobby plan, $0)
 
 1. Push this repo to GitHub (the `booking-api/` folder can be its own Vercel project).
 2. On https://vercel.com → **Add New Project** → import the repo.
@@ -37,6 +37,6 @@ npx vercel dev              # serves http://localhost:3000/api/*
 
 ## Notes
 
-- Slots: Mon–Fri, 08:00–18:00, 30-min each (edit `lib/slots.ts`).
+- Slots: Mon-Fri, 08:00-18:00, 30-min each (edit `lib/slots.ts`).
 - If Google env vars are missing, booking still records & emails but without a Meet link.
 - If SMTP vars are missing, the event/Meet is still created; emails are skipped.

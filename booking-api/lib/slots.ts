@@ -1,5 +1,5 @@
 // Slot generation + timezone helpers shared by the booking endpoints.
-// Mirrors the 30-minute, 8:00–18:00 schedule used in gioquote.
+// Mirrors the 30-minute, 8:00-18:00 schedule used in gioquote.
 
 export const SLOT_START_HOUR = 8;   // first slot starts at 08:00
 export const SLOT_END_HOUR = 18;    // last slot ends at 18:00

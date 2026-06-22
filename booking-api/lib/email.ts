@@ -36,7 +36,7 @@ export function buildProspectEmail(
         <div style="background:rgba(6,251,169,0.06);border:1px solid rgba(6,251,169,0.25);border-radius:14px;padding:20px 24px;margin-bottom:24px">
           <p style="color:${ACCENT};font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 10px">📅 Your call</p>
           <p style="color:#f5f7fa;font-size:16px;font-weight:500;margin:0 0 4px">${dateStr}</p>
-          <p style="color:#999;font-size:13px;margin:0">${slotStart} – ${slotEnd} · 30 min · Video call</p>
+          <p style="color:#999;font-size:13px;margin:0">${slotStart} - ${slotEnd} · 30 min · Video call</p>
         </div>
         ${meetSection}
         <p style="color:#888;font-size:13px;line-height:1.6;border-top:1px solid rgba(255,255,255,0.06);padding-top:20px;margin-top:8px">
@@ -68,12 +68,12 @@ export function buildOwnerEmail(
       <p style="color:#666;font-size:13px;margin:0 0 24px">Someone just scheduled an intro call from your portfolio.</p>
       <div style="background:rgba(6,251,169,0.06);border:1px solid rgba(6,251,169,0.2);border-radius:12px;padding:20px;margin-bottom:24px">
         <p style="color:#f5f7fa;font-size:16px;font-weight:500;margin:0 0 4px">${dateStr}</p>
-        <p style="color:#999;font-size:13px;margin:0">${slotStart} – ${slotEnd} · 30 min · Video call</p>
+        <p style="color:#999;font-size:13px;margin:0">${slotStart} - ${slotEnd} · 30 min · Video call</p>
       </div>
       <table style="width:100%;border-collapse:collapse">
         <tr><td style="color:#888;font-size:13px;padding:5px 0;width:90px">Name</td><td style="color:#f5f7fa;font-size:13px;font-weight:500">${name}</td></tr>
         <tr><td style="color:#888;font-size:13px;padding:5px 0">Email</td><td><a href="mailto:${email}" style="color:${ACCENT};font-size:13px;text-decoration:none">${email}</a></td></tr>
-        <tr><td style="color:#888;font-size:13px;padding:5px 0">Company</td><td style="color:#f5f7fa;font-size:13px">${company || '—'}</td></tr>
+        <tr><td style="color:#888;font-size:13px;padding:5px 0">Company</td><td style="color:#f5f7fa;font-size:13px">${company || '-'}</td></tr>
         ${meetRow}
       </table>
     </div></body></html>`;

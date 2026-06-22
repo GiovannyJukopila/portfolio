@@ -96,20 +96,20 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         transporter.sendMail({
           from,
           to: email,
-          subject: `Your call is confirmed — ${dateStr} at ${slot.start}`,
+          subject: `Your call is confirmed for ${dateStr} at ${slot.start}`,
           html: buildProspectEmail(name, dateStr, slot.start, slot.end, meetLink),
-          text: `Hi ${name}, your call is confirmed for ${dateStr} at ${slot.start}–${slot.end}.${meetLink ? ` Join here: ${meetLink}` : ''}`,
+          text: `Hi ${name}, your call is confirmed for ${dateStr} at ${slot.start}-${slot.end}.${meetLink ? ` Join here: ${meetLink}` : ''}`,
         }),
         transporter.sendMail({
           from,
           to: ownerEmail,
-          subject: `New call — ${name} · ${dateStr} ${slot.start}`,
+          subject: `New call: ${name} · ${dateStr} ${slot.start}`,
           html: buildOwnerEmail(name, email, company, dateStr, slot.start, slot.end, meetLink),
           text: `New call: ${name} (${email}) on ${dateStr} at ${slot.start}.`,
         }),
       ]);
     } else {
-      console.log('[booking] SMTP not configured — would notify:', { name, email, date, slot, meetLink });
+      console.log('[booking] SMTP not configured, would notify:', { name, email, date, slot, meetLink });
     }
 
     return res.status(200).json({ success: true, meetLink });

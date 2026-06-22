@@ -35,7 +35,7 @@ export class TestimonialsComponent {
       initials: 'MB'
     },
     {
-      quote: 'He rebuilt our Shopify storefronts and the performance gains were immediate — faster load times and a measurable lift in conversions. Reliable and proactive throughout.',
+      quote: 'He rebuilt our Shopify storefronts and the performance gains were immediate, with faster load times and a measurable lift in conversions. Reliable and proactive throughout.',
       name: 'Sarah Mitchell',
       role: 'Project Manager · Endrock Growth',
       initials: 'SM'

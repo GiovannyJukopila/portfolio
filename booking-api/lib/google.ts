@@ -96,10 +96,10 @@ export async function createCalendarEvent(params: CreateEventParams) {
     conferenceDataVersion: 1,
     sendUpdates: 'all',
     requestBody: {
-      summary: `Intro call — ${name}${company ? ` (${company})` : ''}`,
+      summary: `Intro call with ${name}${company ? ` (${company})` : ''}`,
       description:
         `Intro call booked from giovanny's portfolio.\n\n` +
-        `Name: ${name}\nEmail: ${email}\nCompany: ${company || '—'}`,
+        `Name: ${name}\nEmail: ${email}\nCompany: ${company || '-'}`,
       start: { dateTime: startDT.toISOString(), timeZone: TIMEZONE },
       end: { dateTime: endDT.toISOString(), timeZone: TIMEZONE },
       attendees: [
