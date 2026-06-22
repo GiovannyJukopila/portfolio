@@ -21,4 +21,4 @@ export const SOCIAL_LINKS = {
  * While empty, the "Schedule a call" button gracefully falls back to email
  * instead of opening the calendar modal.
  */
-export const BOOKING_API_URL = '';
+export const BOOKING_API_URL = 'https://portfolio-theta-indol-g5w9gx0yxl.vercel.app';
