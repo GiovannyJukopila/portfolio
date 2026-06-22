@@ -1,0 +1,271 @@
+@use 'mixins' as *;
+@use 'variables' as *;
+
+.booking-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(5, 5, 9, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fade-in 0.25s var(--ease-out);
+}
+
+.booking-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  max-height: 92vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: $color-bg-elevated;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6);
+  animation: pop-in 0.32s var(--ease-spring);
+}
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.spin { animation: spin 0.8s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+// ── Header ───────────────────────────────────────────────
+.booking-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  .step-label {
+    font-family: $font-mono;
+    font-size: 0.64rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 0 0 0.25rem;
+  }
+  .head-title { font-size: 0.95rem; font-weight: 500; color: #fff; margin: 0; }
+
+  .close-btn {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 9px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.25s var(--ease-out);
+    &:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+  }
+}
+
+.booking-body { padding: 1.5rem; overflow-y: auto; }
+
+// ── Calendar ─────────────────────────────────────────────
+.cal-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 1.1rem;
+
+  button {
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 9px; color: rgba(255, 255, 255, 0.6);
+    transition: all 0.25s var(--ease-out);
+    &:hover { color: #fff; background: rgba(255, 255, 255, 0.06); }
+  }
+  .cal-month { font-size: 0.92rem; font-weight: 500; color: #fff; text-transform: capitalize; }
+}
+
+.cal-dow {
+  display: grid; grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 0.4rem;
+  span {
+    text-align: center; padding: 0.3rem 0;
+    font-family: $font-mono; font-size: 0.62rem; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
+.cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px;
+
+  .cal-empty { aspect-ratio: 1; }
+
+  .cal-day {
+    aspect-ratio: 1;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.82);
+    transition: all 0.2s var(--ease-out);
+
+    &:hover:not(:disabled) { background: rgba(255, 255, 255, 0.07); }
+    &:disabled { color: rgba(255, 255, 255, 0.18); cursor: not-allowed; }
+
+    &.today:not(.selected) { color: var(--color-primary); font-weight: 600; }
+    &.selected {
+      background: var(--color-primary); color: #04110c; font-weight: 700;
+      box-shadow: 0 6px 16px rgba(6, 251, 169, 0.35);
+    }
+  }
+}
+
+.cal-hint {
+  text-align: center; margin: 1.1rem 0 0;
+  font-size: 0.72rem; color: rgba(255, 255, 255, 0.4);
+}
+
+// ── Time ─────────────────────────────────────────────────
+.back-link {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-size: 0.8rem; color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1rem;
+  &:hover { color: #fff; }
+}
+
+.slots-loading {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 3rem 0; color: rgba(255, 255, 255, 0.5); font-size: 0.88rem;
+}
+
+.slots-hint {
+  font-size: 0.78rem; color: rgba(255, 255, 255, 0.5); margin: 0 0 0.85rem;
+  span { color: rgba(255, 255, 255, 0.35); margin-left: 0.35rem; }
+}
+
+.slots-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.55rem;
+  max-height: 282px; overflow-y: auto; padding-right: 2px;
+
+  .slot-btn {
+    text-align: left;
+    padding: 0.6rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.22s var(--ease-out);
+
+    .slot-start {
+      display: block; font-size: 0.82rem; font-weight: 500; color: rgba(255, 255, 255, 0.92);
+      .taken-tag { font-size: 0.62rem; color: rgba(255, 255, 255, 0.4); margin-left: 0.35rem; }
+    }
+    .slot-end { font-size: 0.7rem; color: rgba(255, 255, 255, 0.4); }
+
+    &:hover:not(.taken) {
+      border-color: rgba(6, 251, 169, 0.45);
+      background: rgba(6, 251, 169, 0.06);
+      .slot-start { color: #fff; }
+    }
+    &.taken { opacity: 0.4; cursor: not-allowed; }
+  }
+}
+
+// ── Confirm ──────────────────────────────────────────────
+.confirm-card {
+  display: flex; align-items: flex-start; gap: 0.85rem;
+  padding: 1rem; margin-bottom: 1.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(6, 251, 169, 0.22);
+  background: rgba(6, 251, 169, 0.05);
+
+  .confirm-ic {
+    width: 38px; height: 38px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 10px;
+    background: rgba(6, 251, 169, 0.12);
+    color: var(--color-primary); font-size: 1.15rem;
+  }
+  .confirm-eyebrow {
+    font-family: $font-mono; font-size: 0.64rem; text-transform: uppercase;
+    letter-spacing: 0.12em; color: var(--color-primary); margin: 0 0 0.2rem;
+  }
+  .confirm-date { font-size: 0.92rem; font-weight: 500; color: #fff; margin: 0; }
+  .confirm-time { font-size: 0.78rem; color: rgba(255, 255, 255, 0.55); margin: 0.15rem 0 0; }
+}
+
+.details-hint { font-size: 0.78rem; color: rgba(255, 255, 255, 0.5); margin: 0 0 1rem; }
+
+.confirm-form {
+  display: flex; flex-direction: column; gap: 0.8rem;
+
+  .fld {
+    label { display: block; font-size: 0.74rem; color: rgba(255, 255, 255, 0.55); margin-bottom: 0.4rem; }
+    input {
+      width: 100%; padding: 0.7rem 0.85rem;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 11px; color: #fff; font-family: inherit; font-size: 0.88rem;
+      transition: all 0.25s var(--ease-out);
+      &::placeholder { color: rgba(255, 255, 255, 0.28); }
+      &:focus { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(6, 251, 169, 0.12); }
+      &.invalid { border-color: rgba(255, 107, 107, 0.6); }
+    }
+    .fld-err {
+      display: flex; align-items: center; gap: 0.3rem;
+      margin: 0.4rem 0 0; font-size: 0.72rem; color: #ff6b6b;
+    }
+  }
+
+  .form-error {
+    padding: 0.6rem 0.8rem; border-radius: 9px;
+    background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.25);
+    font-size: 0.78rem; color: #ff8a8a;
+  }
+
+  .confirm-btn {
+    margin-top: 0.2rem;
+    display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    width: 100%; padding: 0.85rem;
+    background: var(--color-primary); color: #04110c;
+    font-weight: 600; font-size: 0.9rem; border-radius: 12px;
+    transition: all 0.25s var(--ease-out);
+    &:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(6, 251, 169, 0.4); }
+    &:disabled { opacity: 0.6; cursor: not-allowed; }
+  }
+
+  .no-commit { text-align: center; font-size: 0.7rem; color: rgba(255, 255, 255, 0.35); margin: 0; }
+}
+
+// ── Done ─────────────────────────────────────────────────
+.done {
+  text-align: center; padding: 0.5rem 0 0.25rem;
+
+  .done-ic {
+    width: 56px; height: 56px; margin: 0 auto 1.25rem;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 16px; font-size: 1.6rem;
+    color: var(--color-primary);
+    background: rgba(6, 251, 169, 0.1);
+    border: 1px solid rgba(6, 251, 169, 0.25);
+  }
+  h3 { font-size: 1.5rem; color: #fff; margin: 0 0 0.5rem; }
+  .done-when { color: var(--color-primary); font-size: 0.9rem; font-weight: 500; margin: 0 0 1rem; }
+
+  .meet-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.65rem 1.25rem; margin-bottom: 1rem;
+    border-radius: 11px;
+    background: rgba(6, 251, 169, 0.1); border: 1px solid rgba(6, 251, 169, 0.3);
+    color: var(--color-primary); font-size: 0.88rem; font-weight: 500;
+    transition: all 0.25s var(--ease-out);
+    &:hover { background: rgba(6, 251, 169, 0.18); }
+  }
+  .done-note { color: rgba(255, 255, 255, 0.55); font-size: 0.85rem; margin: 0 0 1rem; }
+  .done-sub { color: rgba(255, 255, 255, 0.4); font-size: 0.76rem; margin: 0; }
+
+  .done-close {
+    margin-top: 1.25rem; padding: 0.6rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.12); border-radius: 11px;
+    color: rgba(255, 255, 255, 0.7); font-size: 0.85rem;
+    transition: all 0.25s var(--ease-out);
+    &:hover { color: #fff; border-color: rgba(255, 255, 255, 0.25); }
+  }
+}

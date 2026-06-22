@@ -6,6 +6,29 @@
       <p class="section-sub">{{ 'CONTACT.SUBTITLE' | translate }}</p>
     </div>
 
+    <div class="booking-card">
+      <div class="booking-main">
+        <span class="booking-icon"><i class="ph-fill ph-video-camera"></i></span>
+        <div class="booking-copy">
+          <h3>{{ 'CONTACT.BOOK_TITLE' | translate }}</h3>
+          <p>{{ 'CONTACT.BOOK_TEXT' | translate }}</p>
+        </div>
+        <button type="button" class="booking-cta magnetic" (click)="openBooking()">
+          <i class="ph-bold ph-calendar-check"></i>
+          {{ 'CONTACT.BOOK_CTA' | translate }}
+        </button>
+      </div>
+
+      <ul class="trust-signals">
+        <li *ngFor="let t of trustSignals">
+          <i class="ph {{ t.icon }}"></i>
+          {{ t.key | translate }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="or-divider"><span>{{ 'CONTACT.OR' | translate }}</span></div>
+
     <div class="contact-grid">
       <div class="contact-info">
         <div class="info-card">
@@ -77,4 +100,6 @@
       </div>
     </div>
   </div>
+
+  <app-booking-modal [open]="bookingOpen()" (closed)="bookingOpen.set(false)"></app-booking-modal>
 </section>

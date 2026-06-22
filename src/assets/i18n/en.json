@@ -3,6 +3,7 @@
     "HOME": "Home",
     "ABOUT": "About",
     "SKILLS": "Skills",
+    "SERVICES": "Services",
     "PROJECTS": "Projects",
     "EXPERIENCE": "Experience",
     "CONTACT": "Contact"
@@ -13,7 +14,7 @@
     "I_AM_A": "I'm a",
     "ROLE": "Full-Stack Developer",
     "DESCRIPTION": "Full Stack Software Engineer with 5+ years shipping web & mobile products end to end. Tech-agnostic by mindset, I pair solid engineering fundamentals with AI-assisted workflows (Claude, agents) to learn fast and deliver with speed, quality and security, whatever the stack demands.",
-    "AVAILABILITY": "Available for new opportunities",
+    "AVAILABILITY": "Available for freelance projects",
     "LOCATION": "Birkirkara, Malta",
     "YEARS": "5+ years experience",
     "AI": "AI-augmented workflows",
@@ -21,7 +22,7 @@
     "SCROLL": "Scroll",
     "APPS_LABEL": "Featured app, live on",
     "VIEW_WORK": "View Projects",
-    "CONTACT_ME": "Contact Me"
+    "CONTACT_ME": "Let's Work Together"
   },
   "ABOUT": {
     "EYEBROW": "Get to know me",
@@ -47,7 +48,28 @@
     "SUBTITLE": "Real products I've built and shipped, from SaaS platforms to mobile apps and corporate sites.",
     "ALL": "All",
     "VIEW_CODE": "View Code",
-    "LIVE_DEMO": "Live Demo"
+    "LIVE_DEMO": "Live Demo",
+    "RESULT": "Impact"
+  },
+  "SERVICES": {
+    "EYEBROW": "What I can do for you",
+    "TITLE": "How I Can Help",
+    "SUBTITLE": "From a first idea to a product live in front of users. Pick what you need, or hand me the whole thing.",
+    "S1_TITLE": "Web Apps & Websites",
+    "S1_TEXT": "Fast, responsive and SEO-friendly sites and web apps. From landing pages that convert to complex dashboards and multi-tenant platforms.",
+    "S2_TITLE": "Mobile Apps",
+    "S2_TEXT": "Cross-platform iOS & Android apps with Flutter, shipped to the App Store and Google Play with a native look and feel.",
+    "S3_TITLE": "SaaS & MVPs",
+    "S3_TEXT": "Turn your idea into a working product. Full-stack builds with auth, payments, databases and cloud, ready to validate with real users.",
+    "S4_TITLE": "Consulting & Team Boost",
+    "S4_TEXT": "An extra pair of senior hands for your team: feature delivery, code reviews, architecture and AI-assisted workflows to ship faster.",
+    "CTA": "Start your project"
+  },
+  "TESTIMONIALS": {
+    "EYEBROW": "Social proof",
+    "TITLE": "What People Say",
+    "SUBTITLE": "Feedback from teams and clients I've built products with.",
+    "TRUSTED": "Trusted by teams I've worked with"
   },
   "EXPERIENCE": {
     "EYEBROW": "Career path",
@@ -55,11 +77,11 @@
     "SUBTITLE": "5+ years delivering software across startups and agencies in Europe and Latin America."
   },
   "CONTACT": {
-    "EYEBROW": "Let's talk",
-    "TITLE": "Get In Touch",
-    "SUBTITLE": "Have a project or a role in mind? I'd love to hear about it.",
+    "EYEBROW": "Work with me",
+    "TITLE": "Let's Build Something Together",
+    "SUBTITLE": "Have an idea or a project in mind? Tell me about it and let's bring it to life.",
     "CONNECT": "Let's Connect",
-    "CONNECT_TEXT": "I'm always open to discussing new projects, ideas or opportunities to be part of your vision.",
+    "CONNECT_TEXT": "Whether you need a new product built from scratch, an existing one improved, or an extra pair of expert hands on your team, I'm here to help you ship it. Tell me about your project and I'll reply within 24 hours.",
     "NAME": "Name",
     "EMAIL": "Email",
     "MESSAGE": "Message",
@@ -70,7 +92,48 @@
     "ERR_NAME": "Name is required",
     "ERR_EMAIL": "A valid email is required",
     "ERR_MESSAGE": "Message is required",
-    "SENT": "Opening your email client. Thanks for reaching out!"
+    "SENT": "Opening your email client. Thanks for reaching out!",
+    "BOOK_TITLE": "Prefer a quick call?",
+    "BOOK_TEXT": "Book a free 30-minute intro call. Pick a slot that works for you and you'll get a Google Meet link instantly, no back-and-forth.",
+    "BOOK_CTA": "Schedule a call",
+    "OR": "or send a message",
+    "TRUST_RESPONSE": "Replies within 24h",
+    "TRUST_TIMEZONE": "CET · flexible hours",
+    "TRUST_REMOTE": "Remote · worldwide",
+    "TRUST_LANGS": "Works in EN · ES"
+  },
+  "BOOKING": {
+    "TITLE": "Schedule a 30-min call",
+    "DONE_TITLE": "See you soon!",
+    "STEP1": "Step 1 of 3 — Pick a date",
+    "STEP2": "Step 2 of 3 — Pick a time",
+    "STEP3": "Step 3 of 3 — Confirm",
+    "STEP_DONE": "You're all set",
+    "AVAILABILITY_HINT": "Available Mon–Fri · Next 60 days",
+    "CHECKING": "Checking availability…",
+    "SLOTS_HINT": "All slots are 30 minutes",
+    "TAKEN_TODAY": "taken today",
+    "TAKEN": "Taken",
+    "CALL_LABEL": "Intro call · 30 min",
+    "VIDEO_CALL": "Video call",
+    "DETAILS_HINT": "Enter your details to confirm",
+    "NAME": "Your name",
+    "EMAIL": "Work email",
+    "COMPANY": "Company",
+    "NAME_PH": "Alex Johnson",
+    "EMAIL_PH": "alex@company.com",
+    "COMPANY_PH": "Acme Corp",
+    "CONFIRM": "Confirm booking",
+    "CONFIRMING": "Confirming…",
+    "NO_COMMITMENT": "No credit card. No commitment.",
+    "SLOT_TAKEN": "This slot was just taken by someone else. Please choose another time.",
+    "ERROR": "Something went wrong. Please try again.",
+    "BOOKED": "You're booked!",
+    "JOIN_MEET": "Join Google Meet",
+    "EMAIL_SENT": "A confirmation was sent to your email.",
+    "MEET_SOON": "Check your email — we'll send the video link shortly.",
+    "CLOSE": "Close",
+    "ERR_EMAIL": "Please enter a valid email"
   },
   "COMMON": {
     "DOWNLOAD_CV": "Download CV",

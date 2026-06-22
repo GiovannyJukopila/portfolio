@@ -12,3 +12,13 @@ export const SOCIAL_LINKS = {
   appStore: 'https://apps.apple.com/app/neo-one/id6762820197',
   playStore: 'https://play.google.com/store/apps/details?id=com.neoone.app',
 };
+
+/**
+ * Base URL of the serverless booking backend (see /booking-api).
+ * Deploy booking-api/ to Vercel and paste the resulting URL here, e.g.
+ *   'https://portfolio-booking-api.vercel.app'  (no trailing slash).
+ *
+ * While empty, the "Schedule a call" button gracefully falls back to email
+ * instead of opening the calendar modal.
+ */
+export const BOOKING_API_URL = '';

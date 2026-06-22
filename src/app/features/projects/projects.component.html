@@ -32,6 +32,11 @@
           <h3 class="project-title">{{ project.title }}</h3>
           <p class="project-desc">{{ project.description }}</p>
 
+          <div class="project-result" *ngIf="project.result">
+            <span class="result-label"><i class="ph-fill ph-trend-up"></i> {{ 'PROJECTS.RESULT' | translate }}</span>
+            <span class="result-text">{{ project.result }}</span>
+          </div>
+
           <div class="tech-stack">
             <span *ngFor="let t of project.tech">{{ t }}</span>
           </div>

@@ -1,0 +1,24 @@
+<section class="section services-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'SERVICES.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'SERVICES.TITLE' | translate }}</h2>
+      <p class="section-sub">{{ 'SERVICES.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card" *ngFor="let s of services">
+        <span class="service-icon"><i class="ph-fill {{ s.icon }}"></i></span>
+        <h3 class="service-title">{{ s.titleKey | translate }}</h3>
+        <p class="service-text">{{ s.textKey | translate }}</p>
+      </article>
+    </div>
+
+    <div class="services-cta">
+      <button type="button" class="btn-cta" (click)="scrollToContact()">
+        {{ 'SERVICES.CTA' | translate }}
+        <i class="ph-bold ph-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</section>

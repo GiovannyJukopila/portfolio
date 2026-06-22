@@ -1,0 +1,148 @@
+<div class="booking-backdrop" *ngIf="open" (click)="onBackdrop($event)">
+  <div class="booking-dialog" role="dialog" aria-modal="true">
+
+    <!-- Header -->
+    <div class="booking-head">
+      <div>
+        <p class="step-label">
+          <ng-container [ngSwitch]="step()">
+            <span *ngSwitchCase="'calendar'">{{ 'BOOKING.STEP1' | translate }}</span>
+            <span *ngSwitchCase="'time'">{{ 'BOOKING.STEP2' | translate }}</span>
+            <span *ngSwitchCase="'confirm'">{{ 'BOOKING.STEP3' | translate }}</span>
+            <span *ngSwitchCase="'done'">{{ 'BOOKING.STEP_DONE' | translate }}</span>
+          </ng-container>
+        </p>
+        <p class="head-title">
+          {{ (step() === 'done' ? 'BOOKING.DONE_TITLE' : 'BOOKING.TITLE') | translate }}
+        </p>
+      </div>
+      <button class="close-btn" (click)="close()" aria-label="Close"><i class="ph-bold ph-x"></i></button>
+    </div>
+
+    <div class="booking-body">
+
+      <!-- STEP 1: Calendar -->
+      <ng-container *ngIf="step() === 'calendar'">
+        <div class="cal-nav">
+          <button (click)="prevMonth()" aria-label="Previous month"><i class="ph-bold ph-caret-left"></i></button>
+          <span class="cal-month">{{ monthLabel }}</span>
+          <button (click)="nextMonth()" aria-label="Next month"><i class="ph-bold ph-caret-right"></i></button>
+        </div>
+
+        <div class="cal-dow">
+          <span *ngFor="let d of dayLabels">{{ d }}</span>
+        </div>
+
+        <div class="cal-grid">
+          <ng-container *ngFor="let date of days(); let i = index">
+            <span *ngIf="!date" class="cal-empty"></span>
+            <button *ngIf="date"
+              class="cal-day"
+              [disabled]="isDisabled(date)"
+              [class.selected]="isSelected(date)"
+              [class.today]="isToday(date)"
+              (click)="selectDay(date)">
+              {{ date.getDate() }}
+            </button>
+          </ng-container>
+        </div>
+
+        <p class="cal-hint">{{ 'BOOKING.AVAILABILITY_HINT' | translate }}</p>
+      </ng-container>
+
+      <!-- STEP 2: Time -->
+      <ng-container *ngIf="step() === 'time'">
+        <button class="back-link" (click)="backToCalendar()">
+          <i class="ph-bold ph-caret-left"></i> {{ formatSelectedDate() }}
+        </button>
+
+        <div class="slots-loading" *ngIf="slotsLoading()">
+          <i class="ph ph-circle-notch spin"></i> {{ 'BOOKING.CHECKING' | translate }}
+        </div>
+
+        <ng-container *ngIf="!slotsLoading()">
+          <p class="slots-hint">
+            {{ 'BOOKING.SLOTS_HINT' | translate }}
+            <span *ngIf="takenSlots().length">· {{ takenSlots().length }} {{ 'BOOKING.TAKEN_TODAY' | translate }}</span>
+          </p>
+          <div class="slots-grid">
+            <button *ngFor="let slot of allSlots"
+              class="slot-btn"
+              [class.taken]="isTaken(slot)"
+              [disabled]="isTaken(slot)"
+              (click)="selectSlot(slot)">
+              <span class="slot-start">
+                {{ slot.start }}
+                <span class="taken-tag" *ngIf="isTaken(slot)">{{ 'BOOKING.TAKEN' | translate }}</span>
+              </span>
+              <span class="slot-end">→ {{ slot.end }}</span>
+            </button>
+          </div>
+        </ng-container>
+      </ng-container>
+
+      <!-- STEP 3: Confirm -->
+      <ng-container *ngIf="step() === 'confirm'">
+        <div class="confirm-card">
+          <span class="confirm-ic"><i class="ph-fill ph-calendar-check"></i></span>
+          <div>
+            <p class="confirm-eyebrow">{{ 'BOOKING.CALL_LABEL' | translate }}</p>
+            <p class="confirm-date">{{ formatSelectedDate() }}</p>
+            <p class="confirm-time">{{ selectedSlot()?.start }} – {{ selectedSlot()?.end }} · {{ 'BOOKING.VIDEO_CALL' | translate }}</p>
+          </div>
+        </div>
+
+        <p class="details-hint">{{ 'BOOKING.DETAILS_HINT' | translate }}</p>
+
+        <form (ngSubmit)="submit()" class="confirm-form">
+          <div class="fld">
+            <label>{{ 'BOOKING.NAME' | translate }} *</label>
+            <input name="name" required [(ngModel)]="form.name" [placeholder]="'BOOKING.NAME_PH' | translate">
+          </div>
+          <div class="fld">
+            <label>{{ 'BOOKING.EMAIL' | translate }} *</label>
+            <input name="email" type="email" required [(ngModel)]="form.email"
+              [class.invalid]="emailError()"
+              (ngModelChange)="clearEmailError()" (blur)="onEmailBlur()"
+              [placeholder]="'BOOKING.EMAIL_PH' | translate">
+            <p class="fld-err" *ngIf="emailError()"><i class="ph ph-warning-circle"></i> {{ 'BOOKING.ERR_EMAIL' | translate }}</p>
+          </div>
+          <div class="fld">
+            <label>{{ 'BOOKING.COMPANY' | translate }}</label>
+            <input name="company" [(ngModel)]="form.company" [placeholder]="'BOOKING.COMPANY_PH' | translate">
+          </div>
+
+          <div class="form-error" *ngIf="error()">{{ error() }}</div>
+
+          <button type="submit" class="confirm-btn" [disabled]="loading()">
+            <ng-container *ngIf="!loading()">
+              {{ 'BOOKING.CONFIRM' | translate }} <i class="ph-bold ph-arrow-right"></i>
+            </ng-container>
+            <ng-container *ngIf="loading()">
+              <i class="ph ph-circle-notch spin"></i> {{ 'BOOKING.CONFIRMING' | translate }}
+            </ng-container>
+          </button>
+          <p class="no-commit">{{ 'BOOKING.NO_COMMITMENT' | translate }}</p>
+        </form>
+      </ng-container>
+
+      <!-- STEP 4: Done -->
+      <ng-container *ngIf="step() === 'done'">
+        <div class="done">
+          <div class="done-ic"><i class="ph-bold ph-check"></i></div>
+          <h3>{{ 'BOOKING.BOOKED' | translate }}</h3>
+          <p class="done-when" *ngIf="selectedDate() && selectedSlot()">
+            {{ formatSelectedDate() }} · {{ selectedSlot()?.start }}
+          </p>
+          <a *ngIf="meetLink()" [href]="meetLink()" target="_blank" rel="noopener" class="meet-link">
+            <i class="ph-fill ph-video-camera"></i> {{ 'BOOKING.JOIN_MEET' | translate }}
+          </a>
+          <p class="done-note" *ngIf="!meetLink()">{{ 'BOOKING.MEET_SOON' | translate }}</p>
+          <p class="done-sub">{{ 'BOOKING.EMAIL_SENT' | translate }}</p>
+          <button class="done-close" (click)="close()">{{ 'BOOKING.CLOSE' | translate }}</button>
+        </div>
+      </ng-container>
+
+    </div>
+  </div>
+</div>

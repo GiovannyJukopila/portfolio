@@ -7,7 +7,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { AboutComponent } from '../about/about.component';
 import { SkillsComponent } from '../skills/skills.component';
+import { ServicesComponent } from '../services/services.component';
 import { ProjectsComponent } from '../projects/projects.component';
+import { TestimonialsComponent } from '../testimonials/testimonials.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { ContactComponent } from '../contact/contact.component';
 import { SOCIAL_LINKS } from '../../core/profile';
@@ -23,8 +25,10 @@ gsap.registerPlugin(ScrollTrigger);
     NgxParticlesModule,
     AboutComponent,
     SkillsComponent,
+    ServicesComponent,
     ProjectsComponent,
     ExperienceComponent,
+    TestimonialsComponent,
     ContactComponent
   ],
   templateUrl: './home.component.html',
@@ -138,7 +142,7 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
 
   private initScrollAnimations(prefersReduced: boolean) {
     if (prefersReduced) return;
-    ['#about', '#skills', '#projects', '#experience', '#contact'].forEach(id => {
+    ['#about', '#skills', '#services', '#projects', '#experience', '#testimonials', '#contact'].forEach(id => {
       gsap.from(id, {
         scrollTrigger: { trigger: id, start: 'top 82%', toggleActions: 'play none none reverse' },
         y: 48, opacity: 0, duration: 0.9, ease: 'power3.out'

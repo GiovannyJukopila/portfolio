@@ -3,6 +3,7 @@
     "HOME": "Inicio",
     "ABOUT": "Sobre Mí",
     "SKILLS": "Habilidades",
+    "SERVICES": "Servicios",
     "PROJECTS": "Proyectos",
     "EXPERIENCE": "Experiencia",
     "CONTACT": "Contacto"
@@ -13,7 +14,7 @@
     "I_AM_A": "Soy",
     "ROLE": "Desarrollador Full-Stack",
     "DESCRIPTION": "Ingeniero de Software Full Stack con más de 5 años entregando productos web y móviles de principio a fin. Soy agnóstico a la tecnología: combino sólidos fundamentos de ingeniería con flujos asistidos por IA (Claude, agents) para aprender rápido y entregar con rapidez, calidad y seguridad, sin importar el stack.",
-    "AVAILABILITY": "Disponible para nuevas oportunidades",
+    "AVAILABILITY": "Disponible para proyectos freelance",
     "LOCATION": "Birkirkara, Malta",
     "YEARS": "+5 años de experiencia",
     "AI": "Flujos potenciados con IA",
@@ -21,7 +22,7 @@
     "SCROLL": "Baja",
     "APPS_LABEL": "App destacada, disponible en",
     "VIEW_WORK": "Ver Proyectos",
-    "CONTACT_ME": "Contáctame"
+    "CONTACT_ME": "Trabajemos Juntos"
   },
   "ABOUT": {
     "EYEBROW": "Conóceme",
@@ -47,7 +48,28 @@
     "SUBTITLE": "Productos reales que he construido y publicado, desde plataformas SaaS hasta apps móviles y sitios corporativos.",
     "ALL": "Todos",
     "VIEW_CODE": "Ver Código",
-    "LIVE_DEMO": "Ver en Vivo"
+    "LIVE_DEMO": "Ver en Vivo",
+    "RESULT": "Impacto"
+  },
+  "SERVICES": {
+    "EYEBROW": "Lo que puedo hacer por ti",
+    "TITLE": "Cómo Puedo Ayudarte",
+    "SUBTITLE": "De la primera idea a un producto en vivo frente a tus usuarios. Elige lo que necesitas, o déjamelo todo a mí.",
+    "S1_TITLE": "Web Apps y Sitios Web",
+    "S1_TEXT": "Sitios y aplicaciones web rápidas, responsivas y optimizadas para SEO. Desde landing pages que convierten hasta dashboards complejos y plataformas multi-tenant.",
+    "S2_TITLE": "Apps Móviles",
+    "S2_TEXT": "Apps multiplataforma iOS y Android con Flutter, publicadas en la App Store y Google Play con apariencia y sensación nativas.",
+    "S3_TITLE": "SaaS y MVPs",
+    "S3_TEXT": "Convierte tu idea en un producto funcional. Desarrollo full-stack con autenticación, pagos, bases de datos y nube, listo para validar con usuarios reales.",
+    "S4_TITLE": "Consultoría y Refuerzo de Equipo",
+    "S4_TEXT": "Un par de manos senior extra para tu equipo: entrega de features, code reviews, arquitectura y flujos asistidos por IA para lanzar más rápido.",
+    "CTA": "Inicia tu proyecto"
+  },
+  "TESTIMONIALS": {
+    "EYEBROW": "Prueba social",
+    "TITLE": "Lo Que Dicen",
+    "SUBTITLE": "Opiniones de equipos y clientes con los que he construido productos.",
+    "TRUSTED": "Empresas con las que he trabajado"
   },
   "EXPERIENCE": {
     "EYEBROW": "Trayectoria",
@@ -55,11 +77,11 @@
     "SUBTITLE": "+5 años entregando software en startups y agencias de Europa y Latinoamérica."
   },
   "CONTACT": {
-    "EYEBROW": "Hablemos",
-    "TITLE": "Contáctame",
-    "SUBTITLE": "¿Tienes un proyecto o una vacante en mente? Me encantaría saberlo.",
+    "EYEBROW": "Trabaja conmigo",
+    "TITLE": "Construyamos Algo Juntos",
+    "SUBTITLE": "¿Tienes una idea o un proyecto en mente? Cuéntame y hagámoslo realidad.",
     "CONNECT": "Conectemos",
-    "CONNECT_TEXT": "Siempre estoy abierto a hablar sobre nuevos proyectos, ideas u oportunidades para ser parte de tu visión.",
+    "CONNECT_TEXT": "Ya sea que necesites construir un producto desde cero, mejorar uno existente o un par de manos expertas extra en tu equipo, estoy aquí para ayudarte a lanzarlo. Cuéntame sobre tu proyecto y te responderé en menos de 24 horas.",
     "NAME": "Nombre",
     "EMAIL": "Correo",
     "MESSAGE": "Mensaje",
@@ -70,7 +92,48 @@
     "ERR_NAME": "El nombre es obligatorio",
     "ERR_EMAIL": "Se requiere un correo válido",
     "ERR_MESSAGE": "El mensaje es obligatorio",
-    "SENT": "Abriendo tu cliente de correo. ¡Gracias por escribir!"
+    "SENT": "Abriendo tu cliente de correo. ¡Gracias por escribir!",
+    "BOOK_TITLE": "¿Prefieres una llamada rápida?",
+    "BOOK_TEXT": "Agenda una llamada de 30 minutos gratis. Elige el horario que te convenga y recibirás un enlace de Google Meet al instante, sin idas y vueltas.",
+    "BOOK_CTA": "Agendar llamada",
+    "OR": "o envía un mensaje",
+    "TRUST_RESPONSE": "Respondo en 24h",
+    "TRUST_TIMEZONE": "CET · horario flexible",
+    "TRUST_REMOTE": "Remoto · en todo el mundo",
+    "TRUST_LANGS": "Trabajo en ES · EN"
+  },
+  "BOOKING": {
+    "TITLE": "Agenda una llamada de 30 min",
+    "DONE_TITLE": "¡Nos vemos pronto!",
+    "STEP1": "Paso 1 de 3 — Elige el día",
+    "STEP2": "Paso 2 de 3 — Elige la hora",
+    "STEP3": "Paso 3 de 3 — Confirma",
+    "STEP_DONE": "Todo listo",
+    "AVAILABILITY_HINT": "Disponible Lun–Vie · Próximos 60 días",
+    "CHECKING": "Comprobando disponibilidad…",
+    "SLOTS_HINT": "Todas las franjas son de 30 minutos",
+    "TAKEN_TODAY": "ocupadas hoy",
+    "TAKEN": "Ocupado",
+    "CALL_LABEL": "Llamada · 30 min",
+    "VIDEO_CALL": "Videollamada",
+    "DETAILS_HINT": "Ingresa tus datos para confirmar",
+    "NAME": "Tu nombre",
+    "EMAIL": "Correo de trabajo",
+    "COMPANY": "Empresa",
+    "NAME_PH": "Alex Pérez",
+    "EMAIL_PH": "alex@empresa.com",
+    "COMPANY_PH": "Acme Corp",
+    "CONFIRM": "Confirmar reserva",
+    "CONFIRMING": "Confirmando…",
+    "NO_COMMITMENT": "Sin tarjeta. Sin compromiso.",
+    "SLOT_TAKEN": "Alguien acaba de reservar esa franja. Por favor elige otra hora.",
+    "ERROR": "Algo salió mal. Inténtalo de nuevo.",
+    "BOOKED": "¡Reserva confirmada!",
+    "JOIN_MEET": "Unirse a Google Meet",
+    "EMAIL_SENT": "Te enviamos una confirmación por correo.",
+    "MEET_SOON": "Revisa tu correo — te enviaremos el enlace en breve.",
+    "CLOSE": "Cerrar",
+    "ERR_EMAIL": "Ingresa un correo válido"
   },
   "COMMON": {
     "DOWNLOAD_CV": "Descargar CV",

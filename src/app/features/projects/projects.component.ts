@@ -13,6 +13,7 @@ interface Project {
   filters?: Category[];        // extra categories this project should match
   image: string;
   description: string;
+  result?: string;            // outcome-focused highlight (the client value)
   tech: string[];
   link?: string;
   github?: string;
@@ -39,6 +40,7 @@ export class ProjectsComponent {
       filters: ['Mobile'],
       image: 'assets/projects/neoone.jpg',
       description: 'All-in-one loyalty SaaS for retail & hospitality. Multi-tenant web platform plus native mobile apps with points, rewards and analytics.',
+      result: 'Shipped to App Store & Google Play, serving multiple businesses from a single multi-tenant platform.',
       tech: ['Angular', 'Flutter', 'Firebase', 'Node.js', 'AWS'],
       link: 'https://neo-one.eu/',
       stores: [
@@ -53,6 +55,7 @@ export class ProjectsComponent {
       filters: ['Mobile'],
       image: 'assets/projects/neoappgym.jpg',
       description: 'Gym & sports management platform: member management, scheduling, plans and real-time access control across web and mobile.',
+      result: 'Replaced manual check-ins with real-time access control, streamlining daily operations for gyms.',
       tech: ['Angular', 'Flutter', 'Firebase', 'Firestore'],
       link: 'https://neoappgym.com/',
     },
@@ -61,6 +64,7 @@ export class ProjectsComponent {
       category: 'Web',
       image: 'assets/projects/neoapp.jpg',
       description: 'Corporate landing for an enterprise software company. Scalable applications, premium UI and a lead-generation focused design.',
+      result: 'Lead-generation focused design that gives the company a premium, trust-building first impression.',
       tech: ['Angular', 'SCSS', 'AWS'],
       link: 'https://neo-app.eu/',
     },
@@ -69,6 +73,7 @@ export class ProjectsComponent {
       category: 'Web',
       image: 'assets/projects/osteosur.jpg',
       description: 'Corporate site & product catalog for a medical-device distributor (osteosynthesis & surgical materials) with a clean, trust-driven design.',
+      result: 'Gave a medical-device distributor a credible online presence and an easy-to-browse product catalog.',
       tech: ['Angular', 'SCSS', 'Netlify'],
       link: 'https://osteosur.netlify.app/',
     },
@@ -77,6 +82,7 @@ export class ProjectsComponent {
       category: 'Web',
       image: 'assets/projects/comecat.jpg',
       description: 'Industrial website for a metalworking & precision-engineering company, showcasing capabilities, projects and certifications.',
+      result: 'Turned a B2B manufacturer\'s capabilities and certifications into a clear, sales-ready showcase.',
       tech: ['Angular', 'SCSS', 'Netlify'],
       link: 'https://comecatesting.netlify.app/',
     },

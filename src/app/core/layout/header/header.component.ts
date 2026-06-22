@@ -22,6 +22,7 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     { label: 'NAV.HOME', link: 'home' },
     { label: 'NAV.ABOUT', link: 'about' },
     { label: 'NAV.SKILLS', link: 'skills' },
+    { label: 'NAV.SERVICES', link: 'services' },
     { label: 'NAV.PROJECTS', link: 'projects' },
     { label: 'NAV.EXPERIENCE', link: 'experience' },
     { label: 'NAV.CONTACT', link: 'contact' }

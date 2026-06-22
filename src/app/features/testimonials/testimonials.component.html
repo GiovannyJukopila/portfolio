@@ -1,0 +1,33 @@
+<section class="section testimonials-section">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ 'TESTIMONIALS.EYEBROW' | translate }}</span>
+      <h2 class="section-title">{{ 'TESTIMONIALS.TITLE' | translate }}</h2>
+      <p class="section-sub">{{ 'TESTIMONIALS.SUBTITLE' | translate }}</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <figure class="testimonial-card" *ngFor="let t of testimonials">
+        <i class="ph-fill ph-quotes quote-mark"></i>
+        <blockquote class="testimonial-quote">{{ t.quote }}</blockquote>
+        <figcaption class="testimonial-author">
+          <span class="avatar">{{ t.initials }}</span>
+          <span class="author-meta">
+            <span class="author-name">{{ t.name }}</span>
+            <span class="author-role">{{ t.role }}</span>
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="trusted-by">
+      <span class="trusted-label">{{ 'TESTIMONIALS.TRUSTED' | translate }}</span>
+      <ul class="logos">
+        <li class="logo-item" *ngFor="let c of companies">
+          <span class="logo-badge" [style.--brand]="c.color">{{ c.initials }}</span>
+          <span class="logo-name">{{ c.name }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
