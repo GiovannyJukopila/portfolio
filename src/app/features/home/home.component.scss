@@ -239,11 +239,12 @@
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     color: #fff;
-    padding: 0.5rem 0.85rem;
+    padding: 0.45rem 0.8rem;
     border-radius: 12px;
+    white-space: nowrap;
     @include card-surface;
     animation: float 5s ease-in-out infinite;
 
@@ -252,20 +253,21 @@
       font-size: 1rem;
     }
 
-    &.badge-1 {
-      top: 6%;
-      left: -8%;
-      animation-delay: 0s;
-    }
-    &.badge-2 {
-      bottom: 14%;
-      left: -12%;
-      animation-delay: 1.2s;
-    }
-    &.badge-3 {
-      top: 34%;
-      right: -10%;
-      animation-delay: 2.1s;
+    // Distributed clockwise around the photo (clock positions)
+    &.badge-1 { top: 3%;    left: -8%;   animation-delay: 0s; }    // 11 o'clock
+    &.badge-4 { top: -6%;   left: 36%;   animation-delay: 0.5s; }  // 12 o'clock
+    &.badge-5 { top: 3%;    right: -6%;  animation-delay: 1s; }    //  1 o'clock
+    &.badge-3 { top: 42%;   right: -12%; animation-delay: 1.5s; }  //  3 o'clock
+    &.badge-7 { bottom: 6%; right: -8%;  animation-delay: 2s; }    //  5 o'clock
+    &.badge-8 { bottom: -6%; left: 30%;  animation-delay: 2.5s; }  //  6 o'clock
+    &.badge-2 { bottom: 6%; left: -10%;  animation-delay: 3s; }    //  7 o'clock
+    &.badge-6 { top: 42%;   left: -14%;  animation-delay: 3.5s; }  //  9 o'clock
+
+    // Thin out + shrink on small screens to avoid clutter/overflow
+    @media (max-width: 600px) {
+      font-size: 0.72rem;
+      padding: 0.38rem 0.6rem;
+      &.badge-4, &.badge-8 { display: none; }
     }
   }
 }
